@@ -1,0 +1,12 @@
+# nostr-restaurant/docker-compose.yml
+version: "3.8"
+services:
+  peach-nostr-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./peach_offers_data:/app/peach_offers_data
+    env_file:
+      - .env
+    restart: unless-stopped

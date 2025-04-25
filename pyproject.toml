@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "peach-nostr-announcer-bot"
+version = "0.1.0"
+description = ""
+authors = ["Alex Brou <alexandrepilarbrou@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+nostr-sdk = "^0.41.0"
+httpx = "^0.23.3"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.15.0"
+black = "^25.1.0"
+flake8 = "^7.2.0"
+isort = "^6.0.1"
+poethepoet = "^0.34.0"
+
+[tool.poetry.scripts]
+start = "python app/main.py"
+
+[tool.poe.tasks]
+start = "python -m app.main"
+check_fmt = "black --check ./app"
+check_imports = "isort --check ./app"
+check_lint = "flake8 ./app"
+check_types = "mypy ./app"
+check_all = ["check_fmt", "check_imports", "check_lint", "check_types"]
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
