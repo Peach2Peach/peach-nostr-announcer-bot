@@ -25,9 +25,9 @@ PEACH_ORDER_EXPIRATION = 1 * 60 * 60  # 1H in seconds
 
 RELAYS: list[str] = [
     # "wss://nostr.pleb.network",
-    # "wss://nostrvista.aaroniumii.com",
-    # "was://nostr.satstralia.com",
-    # "wss://freelay.sovbit.host",
+    "wss://nostrvista.aaroniumii.com",
+    "was://nostr.satstralia.com",
+    "wss://freelay.sovbit.host",
     # "ws://localhost",
     "wss://nostr.pleb.network",
     "wss://relay.damus.io",
