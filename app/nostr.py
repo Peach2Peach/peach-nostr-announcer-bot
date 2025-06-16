@@ -40,10 +40,17 @@ async def init_nostr_client(secret_key_nsec: str) -> Client:
     keys: Keys = Keys.parse(secret_key=secret_key_nsec)
     signer: NostrSigner = NostrSigner.keys(keys=keys)
     client = Client(signer=signer)
-
+    relay_count: int = 0
     for relay in RELAYS:
         logger.info(f"Adding relay {relay}")
-        await client.add_relay(relay)
+        try:
+            await client.add_relay(relay)
+            relay_count += 1
+        except:
+            logger.error(f"Bad relay {relay}")
+    if relay_count == 0:
+        raise Exception("No good relay available, shutting down!")
+
     logger.info("Finished adding relays!")
     await client.connect()
 
