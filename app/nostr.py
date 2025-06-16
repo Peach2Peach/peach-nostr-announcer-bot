@@ -26,7 +26,7 @@ PEACH_ORDER_EXPIRATION = 1 * 60 * 60  # 1H in seconds
 RELAYS: list[str] = [
     # "wss://nostr.pleb.network",
     "wss://nostrvista.aaroniumii.com",
-    "was://nostr.satstralia.com",
+    # "was://nostr.satstralia.com",
     "wss://freelay.sovbit.host",
     # "ws://localhost",
     "wss://nostr.pleb.network",
@@ -44,7 +44,7 @@ async def init_nostr_client(secret_key_nsec: str) -> Client:
     for relay in RELAYS:
         logger.info(f"Adding relay {relay}")
         await client.add_relay(relay)
-
+    logger.info("Finished adding relays!")
     await client.connect()
 
     logger.info("Nostr Client Connected!!!")

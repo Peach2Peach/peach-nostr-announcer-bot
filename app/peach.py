@@ -1,5 +1,3 @@
-import asyncio
-
 import httpx
 from httpx import Response
 
