@@ -21,7 +21,7 @@ logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 
-PEACH_ORDER_EXPIRATION = 15 * 60 * 60  # 1H in seconds
+PEACH_ORDER_EXPIRATION = 15 * 60 * 60  # 15H in seconds
 
 RELAYS: list[str] = [
     # "wss://nostr.pleb.network",

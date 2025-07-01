@@ -27,7 +27,7 @@ async def main_loop() -> None:
 
     while True:
         try:
-            logger.info("Getting Peach Offers from the Peach API...")
+            # logger.info("Getting Peach Offers from the Peach API...")
 
             offers = await get_peach_offers()
 
@@ -37,7 +37,7 @@ async def main_loop() -> None:
             # we check which ones are new
             new_offers = [x for x in offers if x["id"] not in saved_offers]
 
-            logger.info("Found new offers: " + str([x["id"] for x in new_offers]))
+            # logger.info("Found new offers: " + str([x["id"] for x in new_offers]))
 
             for new_offer in new_offers:
 
@@ -49,7 +49,7 @@ async def main_loop() -> None:
                 with open(JSON_FILE, "w") as f:
                     # and we save a new file
                     json.dump({"offer_ids": saved_offers}, f, indent=2)
-            logger.info("Done with batch, sleeping...")
+            # logger.info("Done with batch, sleeping...")
             await asyncio.sleep(5)
 
         except Exception as e:
